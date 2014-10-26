@@ -79,8 +79,13 @@ Timeline.prototype.getPosition = function() {
   return pos > this.len ? this.len : pos;
 };
 
+Timeline.prototype.getProgress = function() {
+  return (this.getPosition() / this.len) * 100;
+};
+
 // start playback from the beginning
-Timeline.prototype.reset = function() {
+Timeline.prototype.reset = function(len) {
+  if (len) this.len = len;
   this.jumpTo(0);
 };
 
